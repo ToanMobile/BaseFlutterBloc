@@ -68,8 +68,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
       Bloc.observer = AppBlocObserver();
       await Hive.initFlutter();
       await initServices();
-      setLocaleMessages('vi', ViMessages());
-      setDefaultLocale('vi');
       runApp(await builder());
     },
     (error, stackTrace) => log(error.toString(), stackTrace: stackTrace, name: 'ERROR'),

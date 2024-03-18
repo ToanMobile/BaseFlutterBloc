@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:base_flutter_bloc/app/app.dart';
 import 'package:base_flutter_bloc/notification/notification.dart';
+import 'package:flutter/material.dart';
 
 class NotificationView extends StatelessWidget {
   const NotificationView({super.key});

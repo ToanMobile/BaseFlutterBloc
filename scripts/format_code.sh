@@ -1,2 +1,2 @@
 cd ..
-fvm flutter format ./ -l 180
+flutter format ./ -l 180

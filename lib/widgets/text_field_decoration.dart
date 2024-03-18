@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:base_flutter_bloc/app/app.dart';
+import 'package:flutter/material.dart';
 
 class TextFieldDecoration extends StatelessWidget {
   const TextFieldDecoration({

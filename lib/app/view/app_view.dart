@@ -10,8 +10,6 @@ import 'package:authentication_repository/data_source/authentication_remote_data
 import 'package:base_flutter_bloc/app/app.dart';
 import 'package:base_flutter_bloc/authentication/authentication.dart';
 import 'package:base_flutter_bloc/di/di.dart';
-import 'package:base_flutter_bloc/di/di.dart';
-import 'package:base_flutter_bloc/l10n/l10n.dart';
 import 'package:base_flutter_bloc/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

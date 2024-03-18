@@ -3,13 +3,13 @@
 ///  FlutterGen
 /// *****************************************************
 
+import 'package:flutter/services.dart';
 // coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter/services.dart';
 
 class $AssetsFontsGen {
   const $AssetsFontsGen();
@@ -42,17 +42,7 @@ class $AssetsFontsGen {
   String get nunitoSemiBold => 'assets/fonts/Nunito-SemiBold.ttf';
 
   /// List of all assets
-  List<String> get values => [
-        nunitoBlack,
-        nunitoBold,
-        nunitoExtraBold,
-        nunitoExtraLight,
-        nunitoItalic,
-        nunitoLight,
-        nunitoMedium,
-        nunitoRegular,
-        nunitoSemiBold
-      ];
+  List<String> get values => [nunitoBlack, nunitoBold, nunitoExtraBold, nunitoExtraLight, nunitoItalic, nunitoLight, nunitoMedium, nunitoRegular, nunitoSemiBold];
 }
 
 class $AssetsIconsGen {
@@ -74,19 +64,16 @@ class $AssetsIconsGen {
   SvgGenImage get camera => const SvgGenImage('assets/icons/camera.svg');
 
   /// File path: assets/icons/circle_arrow_left.svg
-  SvgGenImage get circleArrowLeft =>
-      const SvgGenImage('assets/icons/circle_arrow_left.svg');
+  SvgGenImage get circleArrowLeft => const SvgGenImage('assets/icons/circle_arrow_left.svg');
 
   /// File path: assets/icons/close_square.svg
-  SvgGenImage get closeSquare =>
-      const SvgGenImage('assets/icons/close_square.svg');
+  SvgGenImage get closeSquare => const SvgGenImage('assets/icons/close_square.svg');
 
   /// File path: assets/icons/edit.svg
   SvgGenImage get edit => const SvgGenImage('assets/icons/edit.svg');
 
   /// File path: assets/icons/edit_square.svg
-  SvgGenImage get editSquare =>
-      const SvgGenImage('assets/icons/edit_square.svg');
+  SvgGenImage get editSquare => const SvgGenImage('assets/icons/edit_square.svg');
 
   /// File path: assets/icons/filter.svg
   SvgGenImage get filter => const SvgGenImage('assets/icons/filter.svg');
@@ -110,8 +97,7 @@ class $AssetsIconsGen {
   SvgGenImage get plus => const SvgGenImage('assets/icons/plus.svg');
 
   /// File path: assets/icons/plus_border.svg
-  SvgGenImage get plusBorder =>
-      const SvgGenImage('assets/icons/plus_border.svg');
+  SvgGenImage get plusBorder => const SvgGenImage('assets/icons/plus_border.svg');
 
   /// File path: assets/icons/profile.svg
   SvgGenImage get profile => const SvgGenImage('assets/icons/profile.svg');
@@ -163,12 +149,10 @@ class $AssetsImagesGen {
   const $AssetsImagesGen();
 
   /// File path: assets/images/blank_avatar.png
-  AssetGenImage get blankAvatar =>
-      const AssetGenImage('assets/images/blank_avatar.png');
+  AssetGenImage get blankAvatar => const AssetGenImage('assets/images/blank_avatar.png');
 
   /// File path: assets/images/blank_image.png
-  AssetGenImage get blankImage =>
-      const AssetGenImage('assets/images/blank_image.png');
+  AssetGenImage get blankImage => const AssetGenImage('assets/images/blank_image.png');
 
   /// File path: assets/images/komkat.png
   AssetGenImage get komkat => const AssetGenImage('assets/images/komkat.png');

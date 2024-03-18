@@ -1,6 +1,6 @@
+import 'package:base_flutter_bloc/app/config/extensions/string_extension.dart';
 import 'package:dartx/dartx.dart';
 import 'package:formz/formz.dart';
-import 'package:base_flutter_bloc/app/config/extensions/string_extension.dart';
 
 enum EmailValidationError { empty, invalid }
 

@@ -1,6 +1,6 @@
+import 'package:base_flutter_bloc/app/app.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:base_flutter_bloc/app/app.dart';
 
 class ShimmerPopularBlogCard extends StatelessWidget {
   const ShimmerPopularBlogCard({
