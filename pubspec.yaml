@@ -1,4 +1,4 @@
-name: task_managers_flutter
+name: base_flutter_bloc
 description: "A new Flutter project."
 publish_to: 'none'
 version: 1.0.0+1
@@ -14,6 +14,7 @@ dependencies:
     sdk: flutter
   cached_network_image: ^3.3.1
   chopper: ^7.2.0
+  lazy_load_indexed_stack: ^1.1.0
   connectivity_plus: ^5.0.2
   dartx: ^1.2.0
   easy_debounce: ^2.0.3
@@ -29,7 +30,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   image_picker: ^1.0.7
-  injectable: ^2.4.0
+  injectable: 2.3.5
   intl: ^0.18.1
   json_annotation: ^4.8.1
   path_provider: ^2.1.2
@@ -38,6 +39,8 @@ dependencies:
     path: packages/http_client_handler
   models:
     path: packages/models
+  authentication_repository:
+    path: packages/authentication_repository
 
 dev_dependencies:
   bloc_test: ^9.1.6
@@ -45,7 +48,7 @@ dev_dependencies:
   chopper_generator: ^7.2.0
   flutter_test:
     sdk: flutter
-  injectable_generator: ^2.6.0
+  injectable_generator: 2.4.1
   json_serializable: ^6.7.1
   mocktail: ^1.0.3
   very_good_analysis: ^5.1.0

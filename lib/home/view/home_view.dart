@@ -1,17 +1,17 @@
+import 'package:base_flutter_bloc/app/app.dart';
+import 'package:base_flutter_bloc/blog/blog.dart';
+import 'package:base_flutter_bloc/bookmark/book_mark.dart';
+import 'package:base_flutter_bloc/home/widget/widget.dart';
+import 'package:base_flutter_bloc/l10n/l10n.dart';
+import 'package:base_flutter_bloc/profile/profile.dart';
+import 'package:base_flutter_bloc/widgets/blog_card_placeholder.dart';
+import 'package:base_flutter_bloc/widgets/widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:very_good_blog_app/app/app.dart';
-import 'package:very_good_blog_app/blog/blog.dart';
-import 'package:very_good_blog_app/bookmark/book_mark.dart';
-import 'package:very_good_blog_app/home/widget/widget.dart';
-import 'package:very_good_blog_app/l10n/l10n.dart';
-import 'package:very_good_blog_app/profile/profile.dart';
-import 'package:very_good_blog_app/widgets/blog_card_placeholder.dart';
-import 'package:very_good_blog_app/widgets/widgets.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -30,8 +30,7 @@ class HomeView extends StatelessWidget {
           },
         ),
         BlocListener<BookmarkBloc, BookmarkState>(
-          listenWhen: (previous, current) =>
-              previous.actionBookmarkStatus != current.actionBookmarkStatus,
+          listenWhen: (previous, current) => previous.actionBookmarkStatus != current.actionBookmarkStatus,
           listener: (context, state) {
             if (state.actionBookmarkStatus == ActionBookmarkStatus.addDone) {
               Fluttertoast.cancel();
@@ -52,8 +51,7 @@ class HomeView extends StatelessWidget {
         child: Scaffold(
           body: RefreshIndicator(
             color: AppPalette.primaryColor,
-            onRefresh: () async =>
-                context.read<BlogBloc>().add(const BlogGetBlogs()),
+            onRefresh: () async => context.read<BlogBloc>().add(const BlogGetBlogs()),
             child: SingleChildScrollView(
               primary: true,
               padding: EdgeInsets.only(top: context.padding.top + 16),
@@ -80,8 +78,7 @@ class HomeView extends StatelessWidget {
                             const _MoreBlogList(),
                           ],
                         );
-                      } else if (currentCategory != 'all' &&
-                          isSearching == false) {
+                      } else if (currentCategory != 'all' && isSearching == false) {
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -138,8 +135,7 @@ class _MoreBlogList extends StatelessWidget {
     final l10n = context.l10n;
 
     return BlocBuilder<BlogBloc, BlogState>(
-      buildWhen: (previous, current) =>
-          previous.getBlogStatus != current.getBlogStatus,
+      buildWhen: (previous, current) => previous.getBlogStatus != current.getBlogStatus,
       builder: (context, state) {
         if (state.getBlogStatus == LoadingStatus.loading) {
           return Shimmer.fromColors(
@@ -204,8 +200,7 @@ class _PopularBlogList extends StatelessWidget {
     return SizedBox(
       height: context.screenHeight * 0.35,
       child: BlocBuilder<BlogBloc, BlogState>(
-        buildWhen: (previous, current) =>
-            previous.filterBlogs != current.filterBlogs,
+        buildWhen: (previous, current) => previous.filterBlogs != current.filterBlogs,
         builder: (context, state) {
           if (state.getBlogStatus == LoadingStatus.loading) {
             return ListView.separated(
@@ -277,8 +272,7 @@ class _Header extends StatelessWidget {
                 child: Builder(
                   builder: (context) {
                     final lastName = context.select(
-                          (ProfileBloc profileBloc) =>
-                              profileBloc.state.user?.lastName,
+                          (ProfileBloc profileBloc) => profileBloc.state.user?.lastName,
                         ) ??
                         l10n.user;
                     return Text(
@@ -302,14 +296,11 @@ class _Header extends StatelessWidget {
             child: Builder(
               builder: (context) {
                 final avatarUrl = context.select(
-                  (ProfileBloc profileBloc) =>
-                      profileBloc.state.user?.avatarUrl,
+                  (ProfileBloc profileBloc) => profileBloc.state.user?.avatarUrl,
                 );
                 return CircleAvatar(
                   radius: 24,
-                  backgroundImage: avatarUrl == null || avatarUrl.isEmpty
-                      ? Assets.images.blankAvatar.image().image
-                      : NetworkImage(avatarUrl),
+                  backgroundImage: avatarUrl == null || avatarUrl.isEmpty ? Assets.images.blankAvatar.image().image : NetworkImage(avatarUrl),
                 );
               },
             ),
@@ -337,24 +328,18 @@ class _CategoryChoiceBar extends StatelessWidget {
           final category = categories[index];
           return Builder(
             builder: (context) {
-              final currentCategory = context
-                  .select((BlogBloc blogBloc) => blogBloc.state.category);
+              final currentCategory = context.select((BlogBloc blogBloc) => blogBloc.state.category);
               return GestureDetector(
                 onTap: currentCategory != category
                     ? () {
                         FocusManager.instance.primaryFocus?.unfocus();
-                        context
-                            .read<BlogBloc>()
-                            .add(BlogCategoryPressed(catagory: category));
+                        context.read<BlogBloc>().add(BlogCategoryPressed(catagory: category));
                       }
                     : null,
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
                   decoration: BoxDecoration(
-                    color: currentCategory == category
-                        ? Theme.of(context).primaryColor
-                        : AppPalette.fieldColor,
+                    color: currentCategory == category ? Theme.of(context).primaryColor : AppPalette.fieldColor,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   alignment: Alignment.center,
@@ -362,9 +347,7 @@ class _CategoryChoiceBar extends StatelessWidget {
                     l10n.category(category),
                     style: TextStyle(
                       fontSize: 16,
-                      color: currentCategory == category
-                          ? AppPalette.whiteBackgroundColor
-                          : AppPalette.unSelectedTextChipColor,
+                      color: currentCategory == category ? AppPalette.whiteBackgroundColor : AppPalette.unSelectedTextChipColor,
                     ),
                   ),
                 ),

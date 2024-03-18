@@ -1,14 +1,14 @@
+import 'package:base_flutter_bloc/app/app.dart';
+import 'package:base_flutter_bloc/authentication/authentication.dart';
+import 'package:base_flutter_bloc/di/di.dart';
+import 'package:base_flutter_bloc/domain/repositories/auth_repository.dart';
+import 'package:base_flutter_bloc/l10n/l10n.dart';
+import 'package:base_flutter_bloc/login/login.dart';
+import 'package:base_flutter_bloc/widgets/dismiss_focus_keyboard.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:very_good_blog_app/app/app.dart';
-import 'package:very_good_blog_app/authentication/authentication.dart';
-import 'package:very_good_blog_app/di/di.dart';
-import 'package:very_good_blog_app/domain/repositories/auth_repository.dart';
-import 'package:very_good_blog_app/l10n/l10n.dart';
-import 'package:very_good_blog_app/login/login.dart';
-import 'package:very_good_blog_app/widgets/dismiss_focus_keyboard.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -60,8 +60,7 @@ class LoginView extends StatelessWidget {
                             color: AppPalette.primaryColor,
                             fontWeight: FontWeight.w700,
                           ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () => context.push(AppRoutes.register),
+                          recognizer: TapGestureRecognizer()..onTap = () => context.push(AppRoutes.register),
                         ),
                       ],
                     ),

@@ -1,9 +1,9 @@
+import 'package:base_flutter_bloc/data/datasources/local/user_secure_storage.dart';
+import 'package:base_flutter_bloc/data/datasources/remote/auth/auth_service.dart';
+import 'package:base_flutter_bloc/data/datasources/remote/auth/requests/login_request_body.dart';
+import 'package:base_flutter_bloc/data/datasources/remote/auth/requests/register_request_body.dart';
+import 'package:base_flutter_bloc/domain/repositories/auth_repository.dart';
 import 'package:injectable/injectable.dart';
-import 'package:very_good_blog_app/data/datasources/local/user_secure_storage.dart';
-import 'package:very_good_blog_app/data/datasources/remote/auth/auth_service.dart';
-import 'package:very_good_blog_app/data/datasources/remote/auth/requests/login_request_body.dart';
-import 'package:very_good_blog_app/data/datasources/remote/auth/requests/register_request_body.dart';
-import 'package:very_good_blog_app/domain/repositories/auth_repository.dart';
 
 @LazySingleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {
@@ -18,9 +18,7 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<void> login({required String email, required String password}) {
-    return _authService
-        .login(LoginRequestBody(email: email, password: password))
-        .then<void>((response) {
+    return _authService.login(LoginRequestBody(email: email, password: password)).then<void>((response) {
       _secureStorage
         ..setAccessToken(response.token)
         ..setUserId(response.id);

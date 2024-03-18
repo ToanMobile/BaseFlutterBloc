@@ -11,6 +11,6 @@ Map<String, dynamic> _$RegisterRequestBodyToJson(
     <String, dynamic>{
       'email': instance.email,
       'password': instance.password,
-      'confirmation_password': instance.confirmationPassword,
-      'full_name': instance.fullName,
+      'confirmationPassword': instance.confirmationPassword,
+      'fullName': instance.fullName,
     };

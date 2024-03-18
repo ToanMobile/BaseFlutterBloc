@@ -1,16 +1,7 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:base_flutter_bloc/login/login.dart';
+import 'package:base_flutter_bloc/main/main.dart';
+import 'package:base_flutter_bloc/splash/splash.dart';
 import 'package:go_router/go_router.dart';
-import 'package:models/models.dart';
-import 'package:very_good_blog_app/blog/blog.dart';
-import 'package:very_good_blog_app/blog/view/blog_view_offline.dart';
-import 'package:very_good_blog_app/blog_editor/blog_editor.dart';
-import 'package:very_good_blog_app/bookmark/book_mark.dart';
-import 'package:very_good_blog_app/login/login.dart';
-import 'package:very_good_blog_app/main/main.dart';
-import 'package:very_good_blog_app/profile/profile.dart';
-import 'package:very_good_blog_app/register/register.dart';
-import 'package:very_good_blog_app/setting/setting.dart';
-import 'package:very_good_blog_app/splash/splash.dart';
 
 class AppRoutes {
   static const splash = '/';
@@ -46,7 +37,7 @@ class AppRoutes {
           return const LoginView();
         },
       ),
-      GoRoute(
+      /*GoRoute(
         path: register,
         builder: (context, state) {
           return const RegisterView();
@@ -75,7 +66,7 @@ class AppRoutes {
           final profileBloc = state.extra! as ProfileBloc;
           return BlocProvider.value(
             value: profileBloc,
-            child: const SettingView(),
+            child: SizedBox(), //const SettingView(),
           );
         },
         routes: [
@@ -94,8 +85,7 @@ class AppRoutes {
       GoRoute(
         path: blogEditor,
         builder: (context, state) {
-          final extras =
-              state.extra! as ExtraParams3<ProfileBloc, BlogBloc, BlogModel?>;
+          final extras = state.extra! as ExtraParams3<ProfileBloc, BlogBloc, BlogModel?>;
           return MultiBlocProvider(
             providers: [
               BlocProvider.value(
@@ -114,8 +104,7 @@ class AppRoutes {
           GoRoute(
             path: uploadBlog,
             builder: (context, state) {
-              final extras = state.extra! as ExtraParams4<BlogEditorBloc,
-                  BlogBloc, ProfileBloc, BlogModel?>;
+              final extras = state.extra! as ExtraParams4<BlogEditorBloc, BlogBloc, ProfileBloc, BlogModel?>;
 
               return MultiBlocProvider(
                 providers: [
@@ -150,8 +139,7 @@ class AppRoutes {
       GoRoute(
         path: blog,
         builder: (context, state) {
-          final extras = state.extra!
-              as ExtraParams4<BlogModel, ProfileBloc, BlogBloc, BookmarkBloc>;
+          final extras = state.extra! as ExtraParams4<BlogModel, ProfileBloc, BlogBloc, BookmarkBloc>;
           return MultiBlocProvider(
             providers: [
               BlocProvider.value(
@@ -169,7 +157,7 @@ class AppRoutes {
             ),
           );
         },
-      ),
+      ),*/
     ],
     // initialLocation: home,
     debugLogDiagnostics: true,

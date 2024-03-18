@@ -1,6 +1,6 @@
+import 'package:base_flutter_bloc/di/di.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:http/http.dart';
-import 'package:very_good_blog_app/di/di.dart';
 
 class AppCacheManager {
   static const cacheKey = 'image_cached';
@@ -13,5 +13,4 @@ class AppCacheManager {
       fileService: HttpFileService(httpClient: injector<Client>()),
     ),
   );
-
 }

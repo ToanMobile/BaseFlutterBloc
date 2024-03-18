@@ -1,8 +1,8 @@
 import 'package:chopper/chopper.dart';
 import 'package:injectable/injectable.dart';
-import 'package:very_good_blog_app/data/datasources/remote/auth/requests/login_request_body.dart';
-import 'package:very_good_blog_app/data/datasources/remote/auth/requests/register_request_body.dart';
-import 'package:very_good_blog_app/data/datasources/remote/auth/responses/login_response.dart';
+import 'package:base_flutter_bloc/data/datasources/remote/auth/requests/login_request_body.dart';
+import 'package:base_flutter_bloc/data/datasources/remote/auth/requests/register_request_body.dart';
+import 'package:base_flutter_bloc/data/datasources/remote/auth/responses/login_response.dart';
 
 part 'auth_service.chopper.dart';
 

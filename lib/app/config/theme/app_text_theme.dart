@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:very_good_blog_app/app/app.dart';
+import 'package:base_flutter_bloc/app/app.dart';
 
 class AppTextTheme {
   static const darkW700TextStyle = TextStyle(

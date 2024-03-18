@@ -1,12 +1,12 @@
+import 'package:base_flutter_bloc/app/app.dart';
+import 'package:base_flutter_bloc/authentication/authentication.dart';
+import 'package:base_flutter_bloc/l10n/l10n.dart';
+import 'package:base_flutter_bloc/login/login.dart';
+import 'package:base_flutter_bloc/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:gap/gap.dart';
-import 'package:very_good_blog_app/app/app.dart';
-import 'package:very_good_blog_app/authentication/authentication.dart';
-import 'package:very_good_blog_app/l10n/l10n.dart';
-import 'package:very_good_blog_app/login/login.dart';
-import 'package:very_good_blog_app/widgets/widgets.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -98,13 +98,11 @@ class _PasswordInputState extends State<_PasswordInput> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final password = context.select((LoginBloc bloc) => bloc.state.password);
-    final showOrHideIcon =
-        _isHidePassword ? Assets.icons.show.svg() : Assets.icons.hide.svg();
+    final showOrHideIcon = _isHidePassword ? Assets.icons.show.svg() : Assets.icons.hide.svg();
     return TextFieldDecoration(
       child: TextField(
         key: const Key('loginForm_passwordInput_textField'),
-        onChanged: (password) =>
-            context.read<LoginBloc>().add(LoginPasswordChanged(password)),
+        onChanged: (password) => context.read<LoginBloc>().add(LoginPasswordChanged(password)),
         obscureText: _isHidePassword,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.only(left: 16, right: 16),

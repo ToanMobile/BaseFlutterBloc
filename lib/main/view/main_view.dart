@@ -1,18 +1,12 @@
 import 'package:authentication_repository/authentication_repository.dart';
-import 'package:blog_repository/blog_repository.dart';
-import 'package:bookmark_repository/bookmark_repository.dart';
+import 'package:base_flutter_bloc/app/app.dart';
+import 'package:base_flutter_bloc/authentication/authentication.dart';
+import 'package:base_flutter_bloc/home/home.dart';
+import 'package:base_flutter_bloc/notification/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lazy_load_indexed_stack/lazy_load_indexed_stack.dart';
-import 'package:user_repository/user_repository.dart';
-import 'package:very_good_blog_app/app/app.dart';
-import 'package:very_good_blog_app/authentication/authentication.dart';
-import 'package:very_good_blog_app/blog/blog.dart';
-import 'package:very_good_blog_app/bookmark/book_mark.dart';
-import 'package:very_good_blog_app/home/home.dart';
-import 'package:very_good_blog_app/notification/notification.dart';
-import 'package:very_good_blog_app/profile/profile.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -56,15 +50,14 @@ class _MainViewState extends State<MainView> {
       },
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<BlogBloc>(
+          /* BlocProvider<BlogBloc>(
             create: (context) => BlogBloc(
               blogRepository: context.read<BlogRepository>(),
             ),
           ),
           BlocProvider<ProfileBloc>(
             create: (context) => ProfileBloc(
-              authenticationRepository:
-                  context.read<AuthenticationRepository>(),
+              authenticationRepository: context.read<AuthenticationRepository>(),
               userRepository: context.read<UserRepository>(),
               blogRepository: context.read<BlogRepository>(),
             ),
@@ -73,7 +66,7 @@ class _MainViewState extends State<MainView> {
             create: (context) => BookmarkBloc(
               bookmarkRepository: context.read<BookmarkRepository>(),
             ),
-          ),
+          ),*/
         ],
         child: Scaffold(
           body: ValueListenableBuilder<int>(
@@ -84,8 +77,6 @@ class _MainViewState extends State<MainView> {
                 children: const [
                   HomeView(),
                   NotificationView(),
-                  BookmarkView(),
-                  ProfileView(),
                 ],
               );
             },
@@ -99,11 +90,13 @@ class _MainViewState extends State<MainView> {
                   return FloatingActionButton(
                     onPressed: () => context.push(
                       AppRoutes.blogEditor,
-                      extra: ExtraParams3<ProfileBloc, BlogBloc, BlogModel?>(
+                      extra:
+                          null /*ExtraParams3<ProfileBloc, BlogBloc, BlogModel?>(
                         param1: context.read<ProfileBloc>(),
                         param2: context.read<BlogBloc>(),
                         param3: null,
-                      ),
+                      )*/
+                      ,
                     ),
                     backgroundColor: AppPalette.primaryColor,
                     shape: const CircleBorder(),
@@ -116,8 +109,7 @@ class _MainViewState extends State<MainView> {
               ),
             ),
           ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: BottomAppBar(
             color: AppPalette.whiteBackgroundColor,
             clipBehavior: Clip.hardEdge,
@@ -151,9 +143,7 @@ class _MainViewState extends State<MainView> {
           valueListenable: _currentIndex,
           builder: (context, value, child) {
             return icon.svg(
-              color: value == index
-                  ? AppPalette.primaryColor
-                  : AppPalette.unSelectedColor,
+              color: value == index ? AppPalette.primaryColor : AppPalette.unSelectedColor,
               height: value == index ? 28 : 26,
             );
           },

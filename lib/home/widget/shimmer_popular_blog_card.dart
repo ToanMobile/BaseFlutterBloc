@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:very_good_blog_app/app/app.dart';
+import 'package:base_flutter_bloc/app/app.dart';
 
 class ShimmerPopularBlogCard extends StatelessWidget {
   const ShimmerPopularBlogCard({
@@ -46,8 +46,7 @@ class ShimmerPopularBlogCard extends StatelessWidget {
                   color: AppPalette.whiteBackgroundColor,
                 ),
                 margin: const EdgeInsets.fromLTRB(12, 0, 12, 12),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
                 child: Shimmer.fromColors(
                   baseColor: AppPalette.shimmerBaseColor,
                   highlightColor: AppPalette.shimmerHighlightColor,

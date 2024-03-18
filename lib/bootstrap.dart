@@ -8,12 +8,10 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:base_flutter_bloc/di/di.dart';
 import 'package:bloc/bloc.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:timeago/timeago.dart';
-import 'package:very_good_blog_app/di/di.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -66,7 +64,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   await runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
-      await Firebase.initializeApp();
+      //await Firebase.initializeApp();
       Bloc.observer = AppBlocObserver();
       await Hive.initFlutter();
       await initServices();
@@ -74,7 +72,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
       setDefaultLocale('vi');
       runApp(await builder());
     },
-    (error, stackTrace) =>
-        log(error.toString(), stackTrace: stackTrace, name: 'ERROR'),
+    (error, stackTrace) => log(error.toString(), stackTrace: stackTrace, name: 'ERROR'),
   );
 }

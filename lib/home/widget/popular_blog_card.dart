@@ -1,3 +1,8 @@
+import 'package:base_flutter_bloc/app/app.dart';
+import 'package:base_flutter_bloc/blog/blog.dart';
+import 'package:base_flutter_bloc/bookmark/book_mark.dart';
+import 'package:base_flutter_bloc/profile/profile.dart';
+import 'package:base_flutter_bloc/widgets/widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,11 +10,6 @@ import 'package:go_router/go_router.dart';
 import 'package:models/models.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:very_good_blog_app/app/app.dart';
-import 'package:very_good_blog_app/blog/blog.dart';
-import 'package:very_good_blog_app/bookmark/book_mark.dart';
-import 'package:very_good_blog_app/profile/profile.dart';
-import 'package:very_good_blog_app/widgets/widgets.dart';
 
 class PopularBlogCard extends StatelessWidget {
   const PopularBlogCard({
@@ -52,8 +52,7 @@ class PopularBlogCard extends StatelessWidget {
                   ),
                 ),
               ),
-              progressIndicatorBuilder: (context, url, progress) =>
-                  Shimmer.fromColors(
+              progressIndicatorBuilder: (context, url, progress) => Shimmer.fromColors(
                 baseColor: AppPalette.shimmerBaseColor,
                 highlightColor: AppPalette.shimmerHighlightColor,
                 child: Container(
@@ -83,26 +82,20 @@ class PopularBlogCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(10),
                     child: CircleAvatar(
-                      backgroundColor:
-                          AppPalette.whiteBackgroundColor.withOpacity(0.4),
+                      backgroundColor: AppPalette.whiteBackgroundColor.withOpacity(0.4),
                       child: Builder(
                         builder: (context) {
-                          final bookmarks =
-                              context.watch<BookmarkBloc>().state.bookmarks;
+                          final bookmarks = context.watch<BookmarkBloc>().state.bookmarks;
                           final isInUserBookmark = bookmarks.any(
                             (bookmark) => bookmark.id == blog.id,
                           );
                           return InkEffectIconButton(
                             onPressed: isInUserBookmark
                                 ? () {
-                                    context
-                                        .read<BookmarkBloc>()
-                                        .add(BookmarkRemoveBlog(blog: blog));
+                                    context.read<BookmarkBloc>().add(BookmarkRemoveBlog(blog: blog));
                                   }
                                 : () {
-                                    context
-                                        .read<BookmarkBloc>()
-                                        .add(BookmarkAddBlog(blog: blog));
+                                    context.read<BookmarkBloc>().add(BookmarkAddBlog(blog: blog));
                                   },
                             child: isInUserBookmark
                                 ? Assets.icons.closeSquare.svg(
@@ -126,8 +119,7 @@ class PopularBlogCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   margin: const EdgeInsets.fromLTRB(12, 0, 12, 12),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -135,9 +127,7 @@ class PopularBlogCard extends StatelessWidget {
                       Row(
                         children: [
                           CircleAvatar(
-                            backgroundImage: blog.user.avatarUrl.isEmpty
-                                ? Assets.images.blankAvatar.image().image
-                                : NetworkImage(blog.user.avatarUrl),
+                            backgroundImage: blog.user.avatarUrl.isEmpty ? Assets.images.blankAvatar.image().image : NetworkImage(blog.user.avatarUrl),
                           ),
                           const SizedBox(
                             width: 12,
@@ -149,15 +139,13 @@ class PopularBlogCard extends StatelessWidget {
                               children: [
                                 Text(
                                   blog.user.username,
-                                  style: AppTextTheme.titleTextStyle
-                                      .copyWith(fontSize: 14),
+                                  style: AppTextTheme.titleTextStyle.copyWith(fontSize: 14),
                                 ),
                                 Text(
                                   timeago.format(
                                     blog.createdAt,
                                   ),
-                                  style: AppTextTheme.regularTextStyle
-                                      .copyWith(fontSize: 12),
+                                  style: AppTextTheme.regularTextStyle.copyWith(fontSize: 12),
                                 ),
                               ],
                             ),
@@ -167,8 +155,7 @@ class PopularBlogCard extends StatelessWidget {
                       const SizedBox(height: 12),
                       Text(
                         blog.title,
-                        style:
-                            AppTextTheme.titleTextStyle.copyWith(fontSize: 15),
+                        style: AppTextTheme.titleTextStyle.copyWith(fontSize: 15),
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                       ),

@@ -1,6 +1,6 @@
+import 'package:base_flutter_bloc/app/app.dart';
+import 'package:base_flutter_bloc/widgets/ink_response_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:very_good_blog_app/app/app.dart';
-import 'package:very_good_blog_app/widgets/ink_response_widget.dart';
 
 enum NotificationType {
   follow,
@@ -24,8 +24,7 @@ class NotificationTile extends StatelessWidget {
                 'NotificationType is likeBlog must show blogName,'
                 ' blogName must be not null',
               );
-            } else if (type == NotificationType.follow &&
-                onAddUserTapAction == null) {
+            } else if (type == NotificationType.follow && onAddUserTapAction == null) {
               throw FlutterError(
                 'NotificationType is follow must have onAddUserAction,'
                 ' onAddUserAction must be not null',
@@ -107,8 +106,7 @@ class NotificationTile extends StatelessWidget {
                           children: [
                             TextSpan(
                               text: '$blogName',
-                              style: AppTextTheme.titleTextStyle
-                                  .copyWith(fontSize: 13),
+                              style: AppTextTheme.titleTextStyle.copyWith(fontSize: 13),
                             ),
                           ],
                         ),

@@ -1,8 +1,8 @@
+import 'package:base_flutter_bloc/domain/repositories/auth_repository.dart';
+import 'package:base_flutter_bloc/login/model/models.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
-import 'package:very_good_blog_app/domain/repositories/auth_repository.dart';
-import 'package:very_good_blog_app/login/model/models.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
@@ -64,8 +64,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           (_) => emit(state.copyWith(status: FormzSubmissionStatus.success)),
         )
         .catchError(
-          (_, __) =>
-              emit(state.copyWith(status: FormzSubmissionStatus.failure)),
+          (_, __) => emit(state.copyWith(status: FormzSubmissionStatus.failure)),
         );
   }
 }

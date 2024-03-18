@@ -5,21 +5,18 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:authentication_data_source/authentication_data_source.dart';
 import 'package:authentication_repository/authentication_repository.dart';
-import 'package:blog_data_source/blog_data_source.dart';
-import 'package:blog_repository/blog_repository.dart';
-import 'package:bookmark_data_source/bookmark_data_source.dart';
-import 'package:bookmark_repository/bookmark_repository.dart';
+import 'package:authentication_repository/data_source/authentication_remote_data_source.dart';
+import 'package:base_flutter_bloc/app/app.dart';
+import 'package:base_flutter_bloc/authentication/authentication.dart';
+import 'package:base_flutter_bloc/di/di.dart';
+import 'package:base_flutter_bloc/di/di.dart';
+import 'package:base_flutter_bloc/l10n/l10n.dart';
+import 'package:base_flutter_bloc/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive/hive.dart';
-import 'package:user_repository/user_repository.dart';
-import 'package:very_good_blog_app/app/app.dart';
-import 'package:very_good_blog_app/authentication/authentication.dart';
-import 'package:very_good_blog_app/di/di.dart';
-import 'package:very_good_blog_app/l10n/l10n.dart';
 
 class VeryGoodBlogApp extends StatelessWidget {
   const VeryGoodBlogApp({super.key});
@@ -33,7 +30,7 @@ class VeryGoodBlogApp extends StatelessWidget {
             dataSource: injector<AuthenticationRemoteDataSource>(),
           ),
         ),
-        RepositoryProvider<UserRepository>(
+        /*RepositoryProvider<UserRepository>(
           create: (_) => UserRepository(
             userDataSource: injector<UserRemoteDataSource>(),
             firebaseStorageService: injector<FirebaseStorageService>(),
@@ -50,7 +47,7 @@ class VeryGoodBlogApp extends StatelessWidget {
             localDataSource: injector<BookmarkLocalDataSource>(),
             remoteDataSource: injector<BookmarkRemoteDataSource>(),
           ),
-        ),
+        ),*/
       ],
       child: const VeryGoodBlogAppView(),
     );

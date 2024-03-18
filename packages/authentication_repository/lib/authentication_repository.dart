@@ -5,9 +5,9 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:base_flutter_bloc/app/app.dart';
-import 'package:base_flutter_bloc/bootstrap.dart';
+/// A Authentication Repository
+library authentication_repository;
 
-void main() {
-  bootstrap(() => const VeryGoodBlogApp());
-}
+export 'src/authentication_repository.dart';
+export 'src/authentication_status.dart';
+export 'src/exceptions.dart';

@@ -1,9 +1,9 @@
 import 'package:authentication_repository/authentication_repository.dart';
+import 'package:base_flutter_bloc/app/app.dart';
+import 'package:base_flutter_bloc/authentication/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:very_good_blog_app/app/app.dart';
-import 'package:very_good_blog_app/authentication/authentication.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -14,8 +14,7 @@ class SplashView extends StatelessWidget {
       listener: (context, state) {
         if (state.status == AuthenticationStatus.authenticated) {
           context.go(AppRoutes.home);
-        } else if (state.status == AuthenticationStatus.unauthenticated ||
-            state.status == AuthenticationStatus.unknown) {
+        } else if (state.status == AuthenticationStatus.unauthenticated || state.status == AuthenticationStatus.unknown) {
           context.go(AppRoutes.login);
         } else if (state.status == AuthenticationStatus.authenticatedOffline) {
           context.go(AppRoutes.bookmarkOffline);
