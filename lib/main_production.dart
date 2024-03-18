@@ -13,5 +13,5 @@ void main() {
     flavor: Flavor.production,
     values: FlavorValues(baseUrl: 'http://10.0.2.2:8080'),
   );
-  bootstrap(() => const VeryGoodBlogApp());
+  bootstrap(() => const MyApp());
 }

@@ -9,5 +9,5 @@ import 'package:base_flutter_bloc/app/app.dart';
 import 'package:base_flutter_bloc/bootstrap.dart';
 
 void main() {
-  bootstrap(() => const VeryGoodBlogApp());
+  bootstrap(() => const MyApp());
 }
