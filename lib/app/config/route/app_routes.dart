@@ -1,7 +1,6 @@
-import 'package:base_flutter_bloc/login/login.dart';
-import 'package:base_flutter_bloc/main/main.dart';
-import 'package:base_flutter_bloc/splash/splash.dart';
 import 'package:go_router/go_router.dart';
+import 'package:base_flutter_bloc/view/main/main.dart';
+import 'package:base_flutter_bloc/view/splash/splash.dart';
 
 class AppRoutes {
   static const splash = '/';
@@ -29,12 +28,6 @@ class AppRoutes {
         path: home,
         builder: (context, state) {
           return const MainView();
-        },
-      ),
-      GoRoute(
-        path: login,
-        builder: (context, state) {
-          return const LoginView();
         },
       ),
       /*GoRoute(

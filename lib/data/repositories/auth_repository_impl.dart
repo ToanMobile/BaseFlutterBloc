@@ -2,10 +2,9 @@ import 'package:base_flutter_bloc/data/datasources/local/user_secure_storage.dar
 import 'package:base_flutter_bloc/data/datasources/remote/auth/auth_service.dart';
 import 'package:base_flutter_bloc/data/datasources/remote/auth/requests/login_request_body.dart';
 import 'package:base_flutter_bloc/data/datasources/remote/auth/requests/register_request_body.dart';
-import 'package:base_flutter_bloc/domain/repositories/auth_repository.dart';
-import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: AuthRepository)
+import '../../domain/repositories/auth_repository.dart';
+
 class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({
     required AuthService authService,

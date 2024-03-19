@@ -10,6 +10,7 @@ class TitleOfTextField extends StatelessWidget {
 
   final String title;
   final EdgeInsets padding;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

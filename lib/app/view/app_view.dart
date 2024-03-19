@@ -7,14 +7,14 @@
 
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:authentication_repository/data_source/authentication_remote_data_source.dart';
-import 'package:base_flutter_bloc/app/app.dart';
-import 'package:base_flutter_bloc/authentication/authentication.dart';
-import 'package:base_flutter_bloc/di/di.dart';
-import 'package:base_flutter_bloc/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive/hive.dart';
+import 'package:base_flutter_bloc/app/app.dart';
+import 'package:base_flutter_bloc/authentication/authentication.dart';
+import 'package:base_flutter_bloc/di/di.dart';
+import 'package:base_flutter_bloc/l10n/l10n.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

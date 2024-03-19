@@ -8,10 +8,11 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:base_flutter_bloc/di/di.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+import 'di/di.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override

@@ -18,8 +18,7 @@ abstract class UserSecureStorage {
 
 @LazySingleton(as: UserSecureStorage)
 class UserSecureStorageImpl implements UserSecureStorage {
-  UserSecureStorageImpl({required FlutterSecureStorage secureStorage})
-      : _secureStorage = secureStorage;
+  UserSecureStorageImpl({required FlutterSecureStorage secureStorage}) : _secureStorage = secureStorage;
 
   final FlutterSecureStorage _secureStorage;
 
@@ -30,12 +29,10 @@ class UserSecureStorageImpl implements UserSecureStorage {
   Future<String?> get userId => _secureStorage.read(key: userIdKey);
 
   @override
-  Future<void> setAccessToken(String accessToken) =>
-      _secureStorage.write(key: accessTokenKey, value: accessToken);
+  Future<void> setAccessToken(String accessToken) => _secureStorage.write(key: accessTokenKey, value: accessToken);
 
   @override
-  Future<void> setUserId(String userId) =>
-      _secureStorage.write(key: userIdKey, value: userId);
+  Future<void> setUserId(String userId) => _secureStorage.write(key: userIdKey, value: userId);
 
   @override
   Future<void> removeAllKeys() => _secureStorage.deleteAll();

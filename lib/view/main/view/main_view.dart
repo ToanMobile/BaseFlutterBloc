@@ -1,12 +1,12 @@
 import 'package:authentication_repository/authentication_repository.dart';
-import 'package:base_flutter_bloc/app/app.dart';
-import 'package:base_flutter_bloc/authentication/authentication.dart';
-import 'package:base_flutter_bloc/home/home.dart';
-import 'package:base_flutter_bloc/notification/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lazy_load_indexed_stack/lazy_load_indexed_stack.dart';
+import 'package:base_flutter_bloc/app/app.dart';
+import 'package:base_flutter_bloc/authentication/authentication.dart';
+import 'package:base_flutter_bloc/view/home/home.dart';
+import 'package:base_flutter_bloc/view/notification/notification.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});

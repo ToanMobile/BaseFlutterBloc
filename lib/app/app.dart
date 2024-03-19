@@ -1,7 +1,7 @@
 export 'config/cache_manager/app_cache_manager.dart';
 export 'config/config.dart';
-export 'config/constants/app_contants.dart';
-export 'config/constants/hivedb_contants.dart';
+export 'config/constants/app_constants.dart';
+export 'config/constants/hivedb_constants.dart';
 export 'config/exception/app_exception.dart';
 export 'config/extensions/context_extension.dart';
 export 'config/gen/assets.gen.dart';

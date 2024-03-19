@@ -15,10 +15,8 @@ import 'package:injectable/injectable.dart' as _i2;
 
 import '../data/datasources/local/user_secure_storage.dart' as _i4;
 import '../data/datasources/remote/auth/auth_service.dart' as _i6;
-import '../data/repositories/auth_repository_impl.dart' as _i8;
-import '../domain/repositories/auth_repository.dart' as _i7;
-import 'modules/local_module.dart' as _i9;
-import 'modules/network_module.dart' as _i10;
+import 'modules/local_module.dart' as _i7;
+import 'modules/network_module.dart' as _i8;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -52,14 +50,10 @@ extension GetItInjectableX on _i1.GetIt {
     );
     gh.lazySingleton<_i6.AuthService>(() => _i6.AuthService.create(
         gh<_i5.ChopperClient>(instanceName: 'unAuthClient')));
-    gh.lazySingleton<_i7.AuthRepository>(() => _i8.AuthRepositoryImpl(
-          authService: gh<_i6.AuthService>(),
-          secureStorage: gh<_i4.UserSecureStorage>(),
-        ));
     return this;
   }
 }
 
-class _$LocalModule extends _i9.LocalModule {}
+class _$LocalModule extends _i7.LocalModule {}
 
-class _$NetworkModule extends _i10.NetworkModule {}
+class _$NetworkModule extends _i8.NetworkModule {}

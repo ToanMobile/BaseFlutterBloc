@@ -1,6 +1,7 @@
-import 'package:base_flutter_bloc/di/di.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:http/http.dart';
+
+import '../../../di/di.dart';
 
 class AppCacheManager {
   static const cacheKey = 'image_cached';
